@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Alert, StyleSheet, TextInput, View } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
+import Colors from "../constants/Colors";
 
 const StartGameScreen = ({onPickNumber}) => {
 
@@ -17,7 +18,6 @@ const StartGameScreen = ({onPickNumber}) => {
 
     const confirmInputHandler = () => {
         const chosenNumber = parseInt(enteredNumber);
-        console.log(chosenNumber)
         if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
             Alert.alert(
                 'Invalid Number', 
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         padding: 16,
         marginTop: 100,
         marginHorizontal: 24,
-        backgroundColor: '#3b021f',
+        backgroundColor: Colors.primary800,
         borderRadius: 8,
         elevation: 5, 
         shadowColor: 'black',
@@ -70,9 +70,9 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         fontSize: 32,
-        borderBottomColor: '#ddb52f',
+        borderBottomColor: Colors.accent500,
         borderBottomWidth: 2,
-        color: '#ddb52f',
+        color: Colors.accent500,
         fontWeight: 'bold',
         textAlign: 'center'
     },
