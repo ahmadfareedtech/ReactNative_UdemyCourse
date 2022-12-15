@@ -6,10 +6,11 @@ import GameOverScreen from './screens/GameOverScreen';
 import GameScreen from './screens/GameScreen';
 import StartGameScreen from './screens/StartGameScreen';
 import { useFonts } from 'expo-font'
-import AppLoading from 'expo-app-loading';
+// import AppLoading from 'expo-app-loading'; // pkg now uninstalled
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import Entypo from '@expo/vector-icons/Entypo'
+import { StatusBar } from 'expo-status-bar';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -89,16 +90,19 @@ export default function App() {
 
 
   return (
-    <LinearGradient onLayout={onLayoutRootView} colors={[Colors.primary700 , Colors.accent500]} style={styles.rootScreen}>
-      <ImageBackground 
-      source={require('./assets/background.png')} 
-      resizeMode="cover"
-      style={styles.rootScreen}
-      imageStyle={styles.backgroundImage}
-      >
-          {screen}
-      </ImageBackground>
-    </LinearGradient>
+    <>
+      <StatusBar style='light' />
+      <LinearGradient onLayout={onLayoutRootView} colors={[Colors.primary700 , Colors.accent500]} style={styles.rootScreen}>
+        <ImageBackground 
+        source={require('./assets/background.png')} 
+        resizeMode="cover"
+        style={styles.rootScreen}
+        imageStyle={styles.backgroundImage}
+        >
+            {screen}
+        </ImageBackground>
+      </LinearGradient>
+    </>
   );
 }
 
